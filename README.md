@@ -6,6 +6,15 @@ This repository is a collection of CMake scripts to find packages using CMake's 
 
 The minimum required version of CMake is 3.8.
 
+# Available Packages
+
+- CGAL
+- GMP
+- GMPXX (GMP for C++)
+- MPFR
+- MSGSL (Microsoft GSL library)
+- Spdlog
+
 # How to Use
 
 Clone this repository under your project, and add the directory to `CMAKE_MODULE_PATH`. For example, if you clone this repository into `cmake` directory under your project root directory, do like:
