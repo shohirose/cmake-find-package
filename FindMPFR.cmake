@@ -38,7 +38,7 @@ find_package_handle_standard_args(MPFR
     MPFR_LIBRARY
   )
 
-if (NOT GMP_FOUND)
+if (NOT TARGET GMP::GMP)
   find_package(GMP REQUIRED)
 endif()
 
