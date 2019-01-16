@@ -4,6 +4,9 @@
 #  GMP_INCLUDE_DIR, where to find gmp.h
 #  GMP_LIBRARY, libgmp.so for UNIX
 #  GMP_FOUND, If false, do not try to use GMP.
+#
+# Available targets:
+#  GMP::GMP
 
 find_path(GMP_INCLUDE_DIR gmp.h
   PATHS

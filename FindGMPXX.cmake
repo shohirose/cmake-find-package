@@ -4,6 +4,9 @@
 #  GMPXX_INCLUDE_DIR, where to find gmpxx.h
 #  GMPXX_LIBRARY, libgmpxx.so or libgmpxx.a
 #  GMPXX_FOUND, If false, do not try to use GMPXX.
+#
+# Availbale targets:
+#  GMPXX::GMPXX
 
 find_path(GMPXX_INCLUDE_DIR gmpxx.h
   PATHS

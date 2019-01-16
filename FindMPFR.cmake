@@ -4,6 +4,9 @@
 #  MPFR_INCLUDE_DIR, where to find mpfr.h
 #  MPFR_LIBRARIES, the libraries needed to use MPFR.
 #  MPFR_FOUND, If false, do not try to use MPFR.
+#
+# Available targets:
+#  MPFR::MPFR
 
 find_path(MPFR_INCLUDE_DIR mpfr.h
   PATHS

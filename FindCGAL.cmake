@@ -9,6 +9,11 @@
 # Available componenst:
 #  Core
 #  ImageIO
+#
+# Available targets:
+#  CGAL::CGAL
+#  CGAL::Core
+#  CGAL::ImageIO
 
 find_path(CGAL_INCLUDE_DIR CGAL/basic.h
   PATHS
@@ -81,8 +86,6 @@ find_package_handle_standard_args(CGAL
     CGAL_INCLUDE_DIR
     CGAL_LIBRARY
   HANDLE_COMPONENTS
-    # CGAL_CORE_LIBRARY
-    # CGAL_IMAGE_IO_LIBRARY
   )
 
 if (NOT TARGET Boost::boost OR NOT TARGET Boost::thread)
