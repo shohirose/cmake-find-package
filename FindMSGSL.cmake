@@ -3,6 +3,12 @@
 #
 #  MSGSL_FOUND - Microsoft GSL found
 #  MSGSL_INCLUDE_DIR - Microsoft GSL include directory
+#
+# Available targets:
+#  MSGSL::MSGSL
+#
+# This will define the following cache variables:
+#  MSGSL_CONTRACT_VIOLATION_CONFIG = Throw/Terminate/Unenforced
 
 find_path(MSGSL_INCLUDE_DIR gsl/gsl
   HINTS
