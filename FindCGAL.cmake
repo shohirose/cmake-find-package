@@ -85,11 +85,11 @@ find_package_handle_standard_args(CGAL
     # CGAL_IMAGE_IO_LIBRARY
   )
 
-if (NOT Boost_FOUND OR NOT Boost_THREAD_FOUND)
+if (NOT TARGET Boost::boost OR NOT TARGET Boost::thread)
   find_package(Boost REQUIRED COMPONENTS thread)
 endif()
 
-if (NOT MPFR_FOUND)
+if (NOT TARGET MPFR::MPFR)
   find_package(MPFR REQUIRED)
 endif()
 
