@@ -14,6 +14,7 @@ find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h
     ${SPDLOG_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     include
   )

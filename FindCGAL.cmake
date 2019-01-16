@@ -22,6 +22,7 @@ find_path(CGAL_INCLUDE_DIR CGAL/basic.h
     ${CGAL_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     include
   )
@@ -35,6 +36,7 @@ find_library(CGAL_LIBRARY
     ${CGAL_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     lib
   )
@@ -48,6 +50,7 @@ find_library(CGAL_Core_LIBRARY
     ${CGAL_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     lib
   )
@@ -65,6 +68,7 @@ find_library(CGAL_ImageIO_LIBRARY
     ${CGAL_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     lib
   )

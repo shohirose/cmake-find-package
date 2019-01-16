@@ -15,6 +15,7 @@ find_path(GMPXX_INCLUDE_DIR gmpxx.h
     ${GMPXX_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     include
   )

@@ -15,6 +15,7 @@ find_path(MPFR_INCLUDE_DIR mpfr.h
     ${MPFR_ROOT}
     /usr
     /usr/local
+    $ENV{HOME}/.local
   PATH_SUFFIXES
     include
   )
