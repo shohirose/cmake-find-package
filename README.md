@@ -22,7 +22,7 @@ Clone this repository under your project, and add the directory to `CMAKE_MODULE
 ```cmake
 cmake_minimum_required(VERSION 3.8)
 project(example CXX)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
 
 # ...
 ```
