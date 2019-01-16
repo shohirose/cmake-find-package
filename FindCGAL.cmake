@@ -1,9 +1,14 @@
 # - Find CGAL
 # Find the CGAL includes and client library
+#
 # This module defines
 #  CGAL_INCLUDE_DIR, where to find CGAL.h
 #  CGAL_LIBRARY, the libraries needed to use CGAL.
 #  CGAL_FOUND, If false, do not try to use CGAL.
+#
+# Available componenst:
+#  Core
+#  ImageIO
 
 find_path(CGAL_INCLUDE_DIR CGAL/basic.h
   PATHS
@@ -29,7 +34,7 @@ find_library(CGAL_LIBRARY
     lib
   )
 
-find_library(CGAL_CORE_LIBRARY
+find_library(CGAL_Core_LIBRARY
   NAMES
     CGAL_Core
   PATHS
@@ -42,7 +47,11 @@ find_library(CGAL_CORE_LIBRARY
     lib
   )
 
-find_library(CGAL_IMAGE_IO_LIBRARY
+if (CGAL_Core_LIBRARY)
+  set(CGAL_Core_FOUND ON)
+endif()
+
+find_library(CGAL_ImageIO_LIBRARY
   NAMES
     CGAL_ImageIO
   PATHS
@@ -55,11 +64,15 @@ find_library(CGAL_IMAGE_IO_LIBRARY
     lib
   )
 
+if (CGAL_ImageIO_LIBRARY)
+  set(CGAL_ImageIO_FOUND ON)
+endif()
+
 mark_as_advanced(
   CGAL_INCLUDE_DIR
   CGAL_LIBRARY
-  CGAL_CORE_LIBRARY
-  CGAL_IMAGE_IO_LIBRARY
+  CGAL_Core_LIBRARY
+  CGAL_ImageIO_LIBRARY
   )
 
 include(FindPackageHandleStandardArgs)
@@ -67,8 +80,9 @@ find_package_handle_standard_args(CGAL
   REQUIRED_VARS
     CGAL_INCLUDE_DIR
     CGAL_LIBRARY
-    CGAL_CORE_LIBRARY
-    CGAL_IMAGE_IO_LIBRARY
+  HANDLE_COMPONENTS
+    # CGAL_CORE_LIBRARY
+    # CGAL_IMAGE_IO_LIBRARY
   )
 
 if (NOT Boost_FOUND OR NOT Boost_THREAD_FOUND)
@@ -90,21 +104,21 @@ if(CGAL_FOUND)
       )
   endif()
 
-  if (NOT TARGET CGAL::Core)
+  if (CGAL_Core_FOUND AND NOT TARGET CGAL::Core)
     add_library(CGAL::Core UNKNOWN IMPORTED)
     set_target_properties(CGAL::Core PROPERTIES
       IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
-      IMPORTED_LOCATION "${CGAL_CORE_LIBRARY}"
+      IMPORTED_LOCATION "${CGAL_Core_LIBRARY}"
       INTERFACE_INCLUDE_DIRECTORIES "${CGAL_INCLUDE_DIR}"
       INTERFACE_LINK_LIBRARIES Boost::boost Boost::thread MPFR::MPFR
       )
   endif()
 
-  if (NOT TARGET CGAL::ImageIO)
+  if (CGAL_ImageIO_FOUND AND NOT TARGET CGAL::ImageIO)
     add_library(CGAL::ImageIO UNKNOWN IMPORTED)
     set_target_properties(CGAL::ImageIO PROPERTIES
       IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
-      IMPORTED_LOCATION "${CGAL_IMAGE_IO_LIBRARY}"
+      IMPORTED_LOCATION "${CGAL_ImageIO_LIBRARY}"
       INTERFACE_INCLUDE_DIRECTORIES "${CGAL_INCLUDE_DIR}"
       INTERFACE_LINK_LIBRARIES Boost::boost Boost::thread MPFR::MPFR
       )
